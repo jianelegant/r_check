@@ -78,7 +78,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/id_check_root"
-                        android:layout_centerHorizontal="true"
                         android:text="@string/model"
                         android:typeface="monospace" />
 
@@ -87,7 +86,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/id_model"
-                        android:layout_centerHorizontal="true"
                         android:text="@string/os"
                         android:typeface="monospace" />
 
@@ -96,7 +94,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/id_os"
-                        android:layout_centerHorizontal="true"
                         android:text="@string/brand"
                         android:typeface="monospace" />
                 </RelativeLayout>

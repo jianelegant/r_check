@@ -45,12 +45,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onUnRooted() {
-        mCheckRootText?.setText("Not Rooted")
+        mCheckRootText?.setText(R.string.not_rooted)
         mCheckRootText?.setTextColor(resources.getColor(R.color.red))
+        mCheckRootText?.setOnClickListener(null)
     }
 
     private fun onRooted() {
-        mCheckRootText?.setText("Rooted")
+        mCheckRootText?.setText(R.string.rooted)
         mCheckRootText?.setTextColor(resources.getColor(R.color.green))
+        mCheckRootText?.setOnClickListener(null)
     }
 }
