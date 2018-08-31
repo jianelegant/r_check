@@ -7,4 +7,8 @@
     <string name="brand">Brand:</string>
     <string name="not_rooted">Not Rooted</string>
     <string name="rooted">Rooted</string>
+    <string name="action_rate">Rate</string>
+    <string name="rate_msg">Rate us 5 stars if you like it. It matters much for us~</string>
+    <string name="goto_rate">Go to Rate</string>
+    <string name="cancel">Cancel</string>
 </resources>

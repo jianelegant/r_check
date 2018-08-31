@@ -1,5 +1,9 @@
 package com.yy.adam.rootchecker
 
+import android.app.Activity
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.text.TextUtils
 import android.widget.Toast
 import java.io.BufferedReader
@@ -56,6 +60,20 @@ class Util {
                 proces?.destroy()
             }
             return isroot
+        }
+
+        fun goToRate(activity: Activity) {
+            var uri = Uri.parse("market://details?id=" + activity?.packageName)
+            var deeplinkIntent = Intent(Intent.ACTION_VIEW, uri)
+            deeplinkIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY
+                    or Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET
+                    or Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
+            try {
+                activity?.startActivity(deeplinkIntent)
+            } catch (e : ActivityNotFoundException) {
+                activity?.startActivity(Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://play.google.com/store/apps/details?id=" + activity.packageName)))
+            }
         }
     }
 }
