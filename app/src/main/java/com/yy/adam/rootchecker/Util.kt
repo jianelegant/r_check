@@ -62,6 +62,24 @@ class Util {
             return isroot
         }
 
+        private fun checkRootMethod4() : Boolean {
+            var isroot = false
+            var proces : Process? = null
+            try {
+                proces = Runtime.getRuntime().exec("su")
+                var bufferedReader = BufferedReader(InputStreamReader(proces.inputStream))
+                var line = bufferedReader.readLine()
+                if (line != null) {
+                    isroot = true
+                }
+            } catch (e:Exception) {
+                e.printStackTrace()
+            } finally {
+                proces?.destroy()
+            }
+            return isroot
+        }
+
         fun goToRate(activity: Activity) {
             var uri = Uri.parse("market://details?id=" + activity?.packageName)
             var deeplinkIntent = Intent(Intent.ACTION_VIEW, uri)
