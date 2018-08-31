@@ -15,7 +15,7 @@ class Util {
             }
         }
 
-        fun isDeviceRooted() : Boolean{
+        fun checkDeviceRooted() : Boolean{
             return checkRootMethod1() || checkRootMethod2() || checkRootMethod3()
         }
 
