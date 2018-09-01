@@ -6,9 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.text.TextUtils
 import android.widget.Toast
-import java.io.BufferedReader
-import java.io.File
-import java.io.InputStreamReader
+import java.io.*
 
 class Util {
 
@@ -20,7 +18,7 @@ class Util {
         }
 
         fun checkDeviceRooted() : Boolean{
-            return checkRootMethod1() || checkRootMethod2() || checkRootMethod3()
+            return checkRootMethod5()
         }
 
         private fun checkRootMethod1() : Boolean{
@@ -76,6 +74,45 @@ class Util {
                 e.printStackTrace()
             } finally {
                 proces?.destroy()
+            }
+            return isroot
+        }
+
+        private fun checkRootMethod5() : Boolean {
+            var isroot = false
+            var suProcess: Process? = null
+            var cmdStream: DataOutputStream? = null
+            var bufferedReader: BufferedReader? = null
+
+            try {
+                suProcess = Runtime.getRuntime().exec("su")
+                cmdStream = DataOutputStream(suProcess.outputStream)
+                bufferedReader = BufferedReader(InputStreamReader(suProcess.inputStream))
+
+                cmdStream.writeBytes("id\n")
+                cmdStream.flush()
+
+                var line = bufferedReader.readLine()
+                var exitSu = false
+                if (null == line) {
+                    exitSu = false
+                } else if (line.contains("uid=0")) {
+                    isroot = true
+                    exitSu = true
+                } else {
+                    exitSu = true
+                }
+
+                if (exitSu) {
+                    cmdStream.writeBytes("exit\n")
+                    cmdStream.flush()
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            } finally {
+                cmdStream?.close()
+                bufferedReader?.close()
+                suProcess?.destroy()
             }
             return isroot
         }
