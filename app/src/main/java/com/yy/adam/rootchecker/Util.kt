@@ -24,7 +24,7 @@ class Util {
         fun isTestKeys() : Boolean{
             var isroot = false
             var buildTags = android.os.Build.TAGS
-            if(!TextUtils.isEmpty(buildTags) && buildTags.contains("test-keys")) {
+            if(!TextUtils.isEmpty(buildTags) && (buildTags.contains("test-keys") || buildTags.contains("dev-keys"))) {
                 isroot = true
             }
             return isroot
