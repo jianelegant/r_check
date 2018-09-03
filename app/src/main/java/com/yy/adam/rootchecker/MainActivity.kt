@@ -8,8 +8,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,8 +15,6 @@ class MainActivity : AppCompatActivity() {
     var mModelText: TextView? = null
     var mOSText: TextView? = null
     var mBrandText: TextView? = null
-
-    lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +62,6 @@ class MainActivity : AppCompatActivity() {
         mCheckRootText?.setOnClickListener{
             onCheckRootClicked()
         }
-        loadAd()
     }
 
     private fun onCheckRootClicked() {
@@ -97,11 +92,5 @@ class MainActivity : AppCompatActivity() {
         mCheckRootText?.setText(R.string.rooted)
         mCheckRootText?.setTextColor(resources.getColor(R.color.green))
         mCheckRootText?.setOnClickListener(null)
-    }
-
-    private fun loadAd() {
-        mAdView = findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
     }
 }
