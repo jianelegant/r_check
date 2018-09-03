@@ -60,12 +60,26 @@ class MainActivity : AppCompatActivity() {
         mBrandText?.setText("Brand: " + android.os.Build.BRAND)
 
         mCheckRootText?.setOnClickListener{
-            if(Util.checkDeviceRooted()) {
-                onRooted()
-            } else {
-                onUnRooted()
-            }
+            onCheckRootClicked()
         }
+    }
+
+    private fun onCheckRootClicked() {
+        if(Util.isTestKeys()) {
+            onTestkeys()
+            return
+        }
+        if(Util.checkDeviceRooted()) {
+            onRooted()
+        } else {
+            onUnRooted()
+        }
+    }
+
+    private fun onTestkeys() {
+        mCheckRootText?.setText(R.string.test_keys)
+        mCheckRootText?.setTextColor(resources.getColor(R.color.orange))
+        mCheckRootText?.setOnClickListener(null)
     }
 
     private fun onUnRooted() {

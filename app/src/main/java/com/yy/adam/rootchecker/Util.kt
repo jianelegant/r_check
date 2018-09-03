@@ -21,7 +21,7 @@ class Util {
             return checkRootMethod5()
         }
 
-        private fun checkRootMethod1() : Boolean{
+        fun isTestKeys() : Boolean{
             var isroot = false
             var buildTags = android.os.Build.TAGS
             if(!TextUtils.isEmpty(buildTags) && buildTags.contains("test-keys")) {

@@ -11,4 +11,5 @@
     <string name="rate_msg">Rate us 5 stars if you like it. It matters much for us~</string>
     <string name="goto_rate">Go to Rate</string>
     <string name="cancel">Cancel</string>
+    <string name="test_keys">Your rom is test-keys, you may have root grant via adb</string>
 </resources>
