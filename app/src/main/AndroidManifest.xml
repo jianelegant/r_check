@@ -9,6 +9,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5644941632262899~7314238573"/>
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
